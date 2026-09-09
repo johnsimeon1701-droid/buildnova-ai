@@ -1,0 +1,24 @@
+# Render.com Blueprint — one-click deploy for BuildNova AI.
+# Usage: Render dashboard -> New -> Blueprint -> connect this repo -> Apply.
+#
+# Notes
+# - buildCommand skips dev dependencies (jsdom is test-only; it pins Node >=18
+#   and would break builds on older default Node images). Runtime deps: none.
+# - If applying errors with "no such plan free", delete the `plan: free` line,
+#   commit, push, and pick the Free plan in Render's pop-up when applying.
+# - Prefer creating a plain Web Service instead if Blueprint keeps failing
+#   (exact settings in DEPLOY.md):
+#     Env: Node | Build: npm install --omit=dev | Start: node server/server.js
+services:
+  - type: web
+    name: buildnova-ai-sih2612
+    env: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: node server/server.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20.18.0"
+      - key: NODE_ENV
+        value: production

@@ -1,0 +1,23 @@
+{
+  "name": "buildnova-ai",
+  "version": "1.0.0",
+  "description": "BuildNova AI — AI-powered planning-to-execution bridge for infrastructure projects. Converts field updates into structured L5/L6 progress. SIH 2026 / SIH2612 prototype.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test:parse": "node test/parse-globals.js",
+    "test:smoke": "node test/smoke.js",
+    "test:interact": "node test/interact.js",
+    "test:full": "node test/run-all.js",
+    "test": "node test/run-all.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["sih2026", "epc", "project-controls", "ai", "schedule", "l5", "l6", "construction"],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}
